@@ -1,5 +1,13 @@
 # Spin the Wheel — Employee Event Game
 
+## Shared Supabase project configuration (November 2026)
+Both games use the **same Supabase project** (project ref `jlwgzopkdlsgwcaxvfnn`). Their `config.js` public URL and publishable key are configured. The database **is not installed by simply editing config.js**.
+
+**Run the combined installer once:** open [supabase/install-both-games.sql](https://github.com/vijaysaini7713-web/Spin-the-Wheel/blob/main/supabase/install-both-games.sql), copy its complete contents, then run them in your Supabase project's **SQL Editor**. This provisions shared admin/employee tables, separate settings tables, games, security policies and RPC functions. Do not run separate outdated SQL installers instead.
+
+**Admin setup:** Supabase Dashboard > Authentication > Users > Add user (set email and password). Copy UUID and run `insert into public.admins(user_id) values ('UUID_FROM_AUTH_USERS') on conflict do nothing;`. No default admin password exists. Never share your admin password, database password or service-role key. GitHub Pages must also be enabled separately if you need a public URL.
+
+
 Responsive static web game with **one spin per Employee ID**, server-side weighted prize selection, and an authenticated admin dashboard.
 
 ## Setup
